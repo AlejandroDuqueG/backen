@@ -23,12 +23,12 @@ const productoNuevo4 = {
 
 const ejecutar = async () => {
     /* poner el producto a agregar* en el metodo save */
-    await objects.save(productoNuevo2);
-    /* await objects.getAll(); */
+    await productos.save(productoNuevo2);
+    /* await productos.getAll(); */
     /*poner la id a buscar , solo numeros  en el metodo getById */
-    /* await objects.getById(); */
+    /* await productos.getById(); */
     /*poner la id a eliminar , solo numeros en el metodo deleteById */
-    /* await objects.deleteById(); */
-    /* await objects.deleteAll(); */
+    /* await productos.deleteById(); */
+    /* await productos.deleteAll(); */
 };
 ejecutar();

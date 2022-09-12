@@ -52,7 +52,7 @@ existe(archivo) {
         console.log(error.message);
     }
 }
-    save(object){
+   async save(object){
         try {
             //Verificar si existe archivo, sino crea uno nuevo
             if(!this.existe(this.archivo)) {
@@ -61,7 +61,7 @@ existe(archivo) {
                 );
             //Creación de objeto vacío
             let arrayObjets = [];
-        object["id"] = 1:
+        object["id"] = 1;
         arrayObjets.push(object);
         console.log("Se está agregando el producto");
 
@@ -85,7 +85,7 @@ existe(archivo) {
                 let ultimoId = data[data.length - 1].id;
                 object["id"] = ultimoId + 1;
                 }
-                data.push(object):
+                data.push(object);
                 console.log("Se está agregando el producto");
                 // Escribir el producto
                 this.escribirArchivo(this.archivo, data);
@@ -100,9 +100,8 @@ existe(archivo) {
             console.log(error.message);
         }
     }
-            }
-
-    getById(id){
+}   
+   async getById(id){
         try {
             //Verificar si existe archivo
             if (this.existe(this.archivo)) {
@@ -123,7 +122,7 @@ existe(archivo) {
         }
     } catch (error) {
         console.log(error.message);
-    }
+    };
 
 }
 
@@ -146,7 +145,7 @@ existe(archivo) {
         }
     } catch (error) {
         console.log(error.message);
-    }
+    };
 }
 
    async deleteById(id){
@@ -173,7 +172,7 @@ existe(archivo) {
             }
         } catch (error) {
             console.log(error.message);
-        }
+        };
     }
 
    async deleteAll(){
@@ -186,9 +185,10 @@ existe(archivo) {
                     `Se borraron todos los datos del archivo ${this.archivo}`
                 );
             }
-        }
-    } catch (error) {
+            } catch (error) {
         console.log(error.message);
-    }
+    };
+}
+
 
 module.exports = Contenedor;
