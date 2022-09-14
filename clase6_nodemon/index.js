@@ -13,7 +13,7 @@
     
     async escribirArchivo(archivo, contenido) {
         try {
-            await fs.writeFileSync(
+            await fs.promises.writeFile(
                 archivo,
                 JSON.stringify(contenido, null, 2),
                 "utf-8"

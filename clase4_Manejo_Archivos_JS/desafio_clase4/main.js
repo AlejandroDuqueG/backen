@@ -19,7 +19,7 @@ class Contenedor{
 
 async escribirArchivo(archivo, contenido) {
     try {
-        await fs.writeFileSync(
+        await fs.promises.writeFile(
             archivo,
             JSON.stringify(contenido, null, 2),
             "utf-8"
@@ -100,7 +100,7 @@ existe(archivo) {
             console.log(error.message);
         }
     }
-}   
+   
    async getById(id){
         try {
             //Verificar si existe archivo
@@ -134,8 +134,7 @@ existe(archivo) {
 
             if(data.length !== 0) {
                 console.log(
-                    `Constenido del archivo ${this.archivo} :\n`
-                    data
+                    `Constenido del archivo ${this.archivo} :\n data`
                 );
             } else {
                 throw new Error(
