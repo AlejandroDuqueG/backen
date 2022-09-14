@@ -1,0 +1,20 @@
+[
+    {
+        title: "bombón de chocolate",
+        price: 5000,
+        thumbnail: 'XXX'.
+        id: 1
+    },
+    {
+        title: "banana de chocolate",
+        price: 1000,
+        thumbnail: 'XXX'.
+        id: 2
+    },
+    {
+        title: "barra de chocolate amargo con 70% de cacao",
+        price: 15000,
+        thumbnail: 'XXX'.
+        id: 3
+    }
+]
