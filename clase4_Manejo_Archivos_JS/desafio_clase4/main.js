@@ -33,7 +33,7 @@ async escribirArchivo(archivo, contenido) {
 
 async leerArchivo(archivo) {
     try {
-        const data = await fs.readFileSync(archivo, "utf-8");
+        const data = await fs.promises.readFile(archivo, "utf-8");
         return JSON.parse(data);
     } catch (error) {
         console.log(error.message);
@@ -70,7 +70,7 @@ existe(archivo) {
             this.archivo,
             arrayObjets
         );
-        console.log(`Se agregó nuevo producto con id ${objeto["id"]}`
+        console.log(`Se agregó nuevo producto con id ${object["id"]}`
         );
         return object["id"];
             } else {
@@ -134,7 +134,7 @@ existe(archivo) {
 
             if(data.length !== 0) {
                 console.log(
-                    `Constenido del archivo ${this.archivo} :\n data`
+                    `Contenido del archivo ${this.archivo} :\n ${data}`
                 );
             } else {
                 throw new Error(
