@@ -24,18 +24,33 @@ const productos = [
     },
 ]
 
-let siguienteID = 4
-
-router.post('/productos', (req, res) => {
-  let { body : data } = req
-  data = { id: siguienteID, ...data }
-  productos.push(data)
-  siguienteID++
-  res.status(200).json(data)
-})
 
 router.get('/productos', (_, res) => {
   res.status(200).json(productos)
+})
+
+router.get('/productos/:id', (req, res) => {
+  const id = req.params.id
+  const productoEncontrado = productos.find((producto)=>producto.id==id)
+  if (!productoEncontrado) {
+    const mensaje = {mensaje:"Producto no encontrado"}
+    res.status(200).json(mensaje)
+  } else {
+    res.status(200).json(productoEncontrado)
+  }
+  
+})
+
+router.post('/productos', (req, res) => {
+  let { body : data } = req
+  const ultimoProducto = productos[productos.length-1]
+  console.log(ultimoProducto);
+  const nuevoId = ultimoProducto.id + 1
+  console.log(nuevoId);
+ /*  data = { id: siguienteID, ...data }
+  productos.push(data)
+  siguienteID++ */
+  res.status(200).json(data)
 })
 
 router.put('/productos', (_, res) => {

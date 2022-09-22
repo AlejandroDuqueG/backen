@@ -1,27 +1,31 @@
-    const express = require('express')
-  
-    const app = express()
-  
-    const PORT = process.env.NODE_PORT
+const express = require('express')
 
-    const ENV = process.env.NODE_ENV
+const app = express()
 
-    const fs = require('fs')
+//const PORT = process.env.NODE_PORT
 
-    const path = require('path')
+const PORT = 8080
+
+const ENV = process.env.NODE_ENV
+
+const path = require('path')
 
 const productos = require('./routers/productos')
 
-   app.use(express.json())
-   app.use(express.urlencoded({ extended: true}))
-   
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-   app.use('/api', productos)
 
-   app.use(function (err, req, res, next) {
-    console.error(err.stack)
-    res.status(500).send('Something is broken!')
-   })
+app.use('/api', productos)
+
+app.get('/', (req, res) => {
+  res.send({ mensaje: 'hola mundo' })
+})
+
+/* app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something is broken!')
+}) */
 
 const STATUS_CODE = {
   OK: 200,
@@ -40,3 +44,9 @@ server.on("error", error => console.log(`Error en servidor ${error}`))
 
 // npm i multer@1.4.5-lts.1
 //readme.md resume clase 8
+// nodemon --exec node -r dotenv/config ./index.js
+
+/* "scripts": {
+  "start": "node ./index.js",
+  "dev": "nodemon --exec node -r dotenv/config ./index.js"
+}, */
